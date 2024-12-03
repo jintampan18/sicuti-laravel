@@ -20,7 +20,7 @@
     "env": {
         "APP_ENV": "production",
         "APP_DEBUG": "false",
-        "APP_URL": "https://sicuti.vercel.com",
+        "APP_URL": "https://sicuti-laravel.vercel.com",
         "APP_KEY": "base64:hqYKuydd25BQ/ztan+qX2gsZ7rSD4F8wtZcRy5SCYiA=",
         "APP_CONFIG_CACHE": "/tmp/config.php",
         "APP_EVENTS_CACHE": "/tmp/events.php",
