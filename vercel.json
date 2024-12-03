@@ -19,9 +19,8 @@
     "outputDirectory": "public",
     "env": {
         "APP_ENV": "production",
-        "APP_DEBUG": "false",
+        "APP_DEBUG": "true",
         "APP_URL": "https://sicuti-laravel.vercel.app",
-        "APP_KEY": "base64:hqYKuydd25BQ/ztan+qX2gsZ7rSD4F8wtZcRy5SCYiA=",
 
         "APP_CONFIG_CACHE": "/tmp/config.php",
         "APP_EVENTS_CACHE": "/tmp/events.php",
@@ -29,14 +28,9 @@
         "APP_ROUTES_CACHE": "/tmp/routes.php",
         "APP_SERVICES_CACHE": "/tmp/services.php",
         "VIEW_COMPILED_PATH": "/tmp",
+
         "CACHE_DRIVER": "array",
         "LOG_CHANNEL": "stderr",
-        "SESSION_DRIVER": "cookie",
-
-        "DB_CONNECTION": "mysql",
-        "DB_HOST": "6e5al.h.filess.io",
-        "DB_PORT": "3307",
-        "DB_DATABASE": "rsuDB_waitworeon",
-        "DB_USERNAME": "rsuDB_waitworeon"
+        "SESSION_DRIVER": "cookie"
     }
 }
