@@ -6,6 +6,14 @@
     },
     "routes": [
         {
+            "src": "/bootstrap/(.*)",
+            "dest": "/public/bootstrap/$1"
+          },
+          {
+            "src": "/plugins/(.*)",
+            "dest": "/public/plugins/$1"
+          },
+        {
             "src": "/build/(.*)",
             "dest": "/build/$1"
         },
