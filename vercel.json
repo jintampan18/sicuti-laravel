@@ -6,16 +6,8 @@
     },
     "routes": [
         {
-            "src": "/bootstrap/(.*)",
-            "dest": "/public/bootstrap/$1"
-          },
-          {
-            "src": "/plugins/(.*)",
-            "dest": "/public/plugins/$1"
-          },
-        {
-            "src": "/build/(.*)",
-            "dest": "/build/$1"
+            "src": "/(.*\\.(?:css|js|png|jpg|jpeg|gif|svg|ico|ttf|woff|woff2|eot|otf|webp|avif|txt))$",
+            "dest": "/public/$1"
         },
         {
             "src": "/(.*)",
@@ -30,6 +22,7 @@
         "APP_DEBUG": "false",
         "APP_URL": "https://sicuti-laravel.vercel.app",
         "APP_KEY": "base64:hqYKuydd25BQ/ztan+qX2gsZ7rSD4F8wtZcRy5SCYiA=",
+
         "APP_CONFIG_CACHE": "/tmp/config.php",
         "APP_EVENTS_CACHE": "/tmp/events.php",
         "APP_PACKAGES_CACHE": "/tmp/packages.php",
@@ -39,6 +32,7 @@
         "CACHE_DRIVER": "array",
         "LOG_CHANNEL": "stderr",
         "SESSION_DRIVER": "cookie",
+
         "DB_CONNECTION": "mysql",
         "DB_HOST": "6e5al.h.filess.io",
         "DB_PORT": "3307",
