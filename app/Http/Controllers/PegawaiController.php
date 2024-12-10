@@ -33,6 +33,8 @@ class PegawaiController extends Controller
             'alamat' => 'required|string',
             'tahun_masuk' => 'required|date',
             'status_pegawai' => 'required|in:aktif,nonaktif',
+        ], [
+            'username.unique' => 'Username ini sudah ada!',
         ]);
 
         $user = User::create([

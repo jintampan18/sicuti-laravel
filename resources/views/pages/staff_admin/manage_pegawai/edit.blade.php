@@ -22,7 +22,8 @@
 
                         <!-- Input Nama User -->
                         <div class="form-group row">
-                            <label for="name" class="col-2 col-form-label">Nama</label>
+                            <label for="name" class="col-2 col-form-label">Nama<span
+                                    style="color: red;">*</span></label>
                             <div class="col-10">
                                 <input class="form-control" name="name" type="text" id="name"
                                     value="{{ $pegawai->user->name }}" required>
@@ -31,7 +32,8 @@
 
                         <!-- Input Username -->
                         <div class="form-group row">
-                            <label for="username" class="col-2 col-form-label">Username</label>
+                            <label for="username" class="col-2 col-form-label">Username<span
+                                    style="color: red;">*</span></label>
                             <div class="col-10">
                                 <input class="form-control" name="username" type="text" id="username"
                                     value="{{ $pegawai->user->username }}" required>
@@ -40,7 +42,7 @@
 
                         <!-- Input NIP -->
                         <div class="form-group row">
-                            <label for="nip" class="col-2 col-form-label">NIP</label>
+                            <label for="nip" class="col-2 col-form-label">NIP<span style="color: red;">*</span></label>
                             <div class="col-10">
                                 <input class="form-control" name="nip" type="number" id="nip"
                                     value="{{ $pegawai->nip }}" required>
@@ -49,7 +51,8 @@
 
                         <!-- Pilih Jabatan -->
                         <div class="form-group row">
-                            <label for="jabatan_id" class="col-2 col-form-label">Jabatan</label>
+                            <label for="jabatan_id" class="col-2 col-form-label">Jabatan<span
+                                    style="color: red;">*</span></label>
                             <div class="col-10">
                                 <select class="form-control" name="jabatan_id" id="jabatan_id" required>
                                     <option value="" disabled>Pilih Jabatan</option>
@@ -65,7 +68,8 @@
 
                         <!-- Input Alamat -->
                         <div class="form-group row">
-                            <label for="alamat" class="col-2 col-form-label">Alamat</label>
+                            <label for="alamat" class="col-2 col-form-label">Alamat<span
+                                    style="color: red;">*</span></label>
                             <div class="col-10">
                                 <textarea class="form-control" name="alamat" id="alamat" rows="3" required>{{ $pegawai->alamat }}</textarea>
                             </div>
@@ -73,7 +77,8 @@
 
                         <!-- Input Tahun Masuk -->
                         <div class="form-group row">
-                            <label for="tahun_masuk" class="col-2 col-form-label">Tahun Masuk</label>
+                            <label for="tahun_masuk" class="col-2 col-form-label">Tahun Masuk<span
+                                    style="color: red;">*</span></label>
                             <div class="col-10">
                                 <input class="form-control" name="tahun_masuk" type="date" id="tahun_masuk"
                                     value="{{ $pegawai->tahun_masuk }}" required>
@@ -82,7 +87,8 @@
 
                         <!-- Input Sisa Cuti -->
                         <div class="form-group row">
-                            <label for="sisa_cuti" class="col-2 col-form-label">Sisa Cuti</label>
+                            <label for="sisa_cuti" class="col-2 col-form-label">Sisa Cuti<span
+                                    style="color: red;">*</span></label>
                             <div class="col-10">
                                 <input class="form-control" name="sisa_cuti" type="number" id="sisa_cuti"
                                     value="{{ $pegawai->sisa_cuti }}" required>
@@ -91,7 +97,8 @@
 
                         <!-- Pilih Status Pegawai -->
                         <div class="form-group row">
-                            <label for="status_pegawai" class="col-2 col-form-label">Status Pegawai</label>
+                            <label for="status_pegawai" class="col-2 col-form-label">Status Pegawai<span
+                                    style="color: red;">*</span></label>
                             <div class="col-10">
                                 <select class="form-control" name="status_pegawai" id="status_pegawai" required>
                                     <option value="aktif" {{ $pegawai->status_pegawai == 'aktif' ? 'selected' : '' }}>

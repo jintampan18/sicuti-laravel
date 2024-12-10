@@ -48,7 +48,7 @@ class PengajuanCutiController extends Controller
 
         $pengajuanCuti = PengajuanCuti::findOrFail($id);
         $pengajuanCuti->update([
-            'status_staff_admin' => 'proses',
+            'status_staff_admin' => 'direvisi',
             'catatan_staff_admin' => $request->catatan_staff_admin,
         ]);
 
@@ -90,18 +90,6 @@ class PengajuanCutiController extends Controller
     {
         $pengajuanCuti = PengajuanCuti::findOrFail($id);
 
-
-        // // Pastikan status sebelumnya belum disetujui untuk mencegah pengurangan berulang
-        // if ($pengajuanCuti->status_direktur !== 'disetujui') {
-        //     // Cari pegawai terkait
-        //     $pegawai = Pegawai::findOrFail($pengajuanCuti->pegawai_id);
-
-        //     // Kurangi sisa cuti dengan durasi pengajuan cuti
-        //     $pegawai->update([
-        //         'sisa_cuti' => $pegawai->sisa_cuti - $pengajuanCuti->durasi,
-        //     ]);
-        // }
-
         // Perbarui status pengajuan cuti
         $pengajuanCuti->update([
             'status_direktur' => 'disetujui',
@@ -139,8 +127,17 @@ class PengajuanCutiController extends Controller
             'jenis_cuti_id' => 'required',
             'mulai_cuti' => 'required|date|after_or_equal:today',
             'selesai_cuti' => 'required|date|after_or_equal:mulai_cuti',
-            'alasan' => 'required|string|max:255',
+            'alasan' => 'required|string',
             'dokumen_pendukung.*' => 'nullable|file|mimes:pdf|max:2048',
+        ], [
+            'mulai_cuti.date' => 'Tanggal mulai cuti harus berupa tanggal yang valid.',
+            'mulai_cuti.after_or_equal' => 'Tanggal mulai cuti tidak boleh sebelum hari ini.',
+            'selesai_cuti.required' => 'Tanggal selesai cuti harus diisi.',
+            'selesai_cuti.date' => 'Tanggal selesai cuti harus berupa tanggal yang valid.',
+            'selesai_cuti.after_or_equal' => 'Tanggal selesai cuti tidak boleh sebelum tanggal mulai cuti.',
+            'dokumen_pendukung.*.file' => 'Dokumen pendukung harus berupa file yang valid.',
+            'dokumen_pendukung.*.mimes' => 'Dokumen pendukung hanya boleh berupa file dengan format PDF.',
+            'dokumen_pendukung.*.max' => 'Ukuran dokumen pendukung tidak boleh lebih dari 2MB.',
         ]);
 
         // Ambil pegawai id berdasarkan user yang sedang login

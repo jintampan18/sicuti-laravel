@@ -21,7 +21,8 @@
                         @csrf
                         @method('PUT')
                         <div class="form-group row">
-                            <label for="example-text-input" class="col-2 col-form-label">Nama Jenis Cuti</label>
+                            <label for="example-text-input" class="col-2 col-form-label">Nama Jenis Cuti<span
+                                    style="color: red;">*</span></label>
                             <div class="col-10">
                                 <input class="form-control" name="name_jenis_cuti" type="text" id="example-text-input"
                                     value="{{ $jenisCuti->name_jenis_cuti }}" required>

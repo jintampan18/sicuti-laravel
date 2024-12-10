@@ -21,7 +21,8 @@
                         @csrf
                         @method('PUT')
                         <div class="form-group row">
-                            <label for="example-text-input" class="col-2 col-form-label">Nama Jabatan</label>
+                            <label for="example-text-input" class="col-2 col-form-label">Nama Jabatan<span
+                                    style="color: red;">*</span></label>
                             <div class="col-10">
                                 <input class="form-control" name="name_jabatan" type="text" id="example-text-input"
                                     value="{{ $jabatan->name_jabatan }}" required>

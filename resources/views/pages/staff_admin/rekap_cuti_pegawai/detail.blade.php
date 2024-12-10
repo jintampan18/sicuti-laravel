@@ -14,10 +14,45 @@
         <div class="row">
             <div class="col-lg-12 col-md-6">
                 <div class="white-box">
-                    <p><strong>Nama:</strong> {{ $pegawai->user->name }}</p>
-                    <p><strong>NIP:</strong> {{ $pegawai->nip }}</p>
-                    <p><strong>Jabatan:</strong> {{ $pegawai->jabatan->name_jabatan }}</p>
-                    <p><strong>Sisa Cuti:</strong> {{ $sisaCuti }} hari</p>
+                    <a href="{{ route('rekap-cuti') }}" class="btn btn-danger mb-3">Kembali</a>
+
+                    <style>
+                        .table-custom {
+                            width: 100%;
+                        }
+
+                        .table-custom td {
+                            padding: 10px 0px;
+                        }
+                    </style>
+
+                    <table class="table-custom">
+                        <tr>
+                            <td style="width: 130px;"> <strong>Nama</strong> </td>
+                            <td style="width: 10px;"> <strong>:</strong> </td>
+                            <td> {{ $pegawai->user->name }} </td>
+                        </tr>
+                        <tr>
+                            <td> <strong>NIP</strong> </td>
+                            <td> <strong>:</strong> </td>
+                            <td> {{ $pegawai->nip }} </td>
+                        </tr>
+                        <tr>
+                            <td> <strong>Jabatan</strong> </td>
+                            <td> <strong>:</strong> </td>
+                            <td> {{ $pegawai->jabatan->name_jabatan }} </td>
+                        </tr>
+                        <tr>
+                            <td> <strong>Tahun Masuk</strong> </td>
+                            <td> <strong>:</strong> </td>
+                            <td> {{ \Carbon\Carbon::parse($pegawai->tahun_masuk)->translatedFormat('d F Y') }} </td>
+                        </tr>
+                        <tr>
+                            <td> <strong>Sisa Cuti</strong> </td>
+                            <td> <strong>:</strong> </td>
+                            <td> {{ $sisaCuti }} </td>
+                        </tr>
+                    </table>
                 </div>
             </div>
         </div>
@@ -53,7 +88,6 @@
                             </tbody>
                         </table>
                     </div>
-                    <a href="{{ route('rekap-cuti') }}" class="btn btn-secondary">Kembali</a>
                 </div>
             </div>
         </div>

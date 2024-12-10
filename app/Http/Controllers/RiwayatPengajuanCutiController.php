@@ -16,7 +16,7 @@ class RiwayatPengajuanCutiController extends Controller
         // Ambil riwayat pengajuan cuti berdasarkan pegawai_id
         $riwayatCuti = PengajuanCuti::where('pegawai_id', $pegawaiId)
             ->with('jenisCuti') // Pastikan ada relasi jenis cuti
-            ->orderBy('tanggal_mulai', 'desc')
+            ->orderBy('created_at', 'desc')
             ->get();
 
         return view('pages.pegawai.riwayat_cuti.index', compact('riwayatCuti'));

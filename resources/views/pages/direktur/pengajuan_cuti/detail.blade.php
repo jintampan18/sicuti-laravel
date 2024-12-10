@@ -22,13 +22,13 @@
                     <!-- Informasi Pengajuan -->
                     <div class="row">
                         <div class="col-md-6">
-                            <p><strong>Nama:</strong> {{ $pengajuanCuti->pegawai->user->name }}</p>
-                            <p><strong>Jenis Cuti:</strong> {{ $pengajuanCuti->jenisCuti->name_jenis_cuti }}</p>
-                            <p><strong>Tanggal Pengajuan:</strong>
+                            <p><strong>Nama :</strong> {{ $pengajuanCuti->pegawai->user->name }}</p>
+                            <p><strong>Jenis Cuti :</strong> {{ $pengajuanCuti->jenisCuti->name_jenis_cuti }}</p>
+                            <p><strong>Mulai Cuti :</strong>
                                 {{ \Carbon\Carbon::parse($pengajuanCuti->tanggal_mulai)->translatedFormat('d F Y') }} -
                                 {{ \Carbon\Carbon::parse($pengajuanCuti->tanggal_selesai)->translatedFormat('d F Y') }}
                             </p>
-                            <p><strong>Durasi:</strong> {{ $pengajuanCuti->durasi }} hari</p>
+                            <p><strong>Durasi :</strong> {{ $pengajuanCuti->durasi }} hari</p>
                         </div>
                         <div class="col-md-6">
                             <h4>Alasan Cuti</h4>

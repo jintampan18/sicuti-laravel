@@ -51,9 +51,14 @@
                                         <td>{{ $item->jenisCuti->name_jenis_cuti }}</td>
                                         <td>
                                             @if ($item->status_staff_admin === 'diverifikasi' && $item->status_direktur === 'proses')
-                                                <span class="badge badge-primary">Menunggu Direktur</span>
+                                                <span class="badge badge-info">Menunggu Direktur</span>
+                                            @elseif ($item->status_staff_admin === 'direvisi' && $item->status_direktur === 'proses')
+                                                <span class="badge"
+                                                    style="background-color: #cd476b; color: white;">Direvisi</span>
                                             @elseif ($item->status_staff_admin === 'diverifikasi' && $item->status_direktur === 'disetujui')
-                                                <span class="badge badge-success">Disetujui</span>
+                                                <span
+                                                    class="badge
+                                                    badge-success">Disetujui</span>
                                             @elseif ($item->status_staff_admin === 'ditolak' || $item->status_direktur === 'ditolak')
                                                 <span class="badge badge-danger">Ditolak</span>
                                             @else

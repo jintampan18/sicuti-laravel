@@ -51,9 +51,14 @@
                                         <td>{{ $item->jenisCuti->name_jenis_cuti }}</td>
                                         <td>
                                             @if ($item->status_staff_admin === 'diverifikasi' && $item->status_direktur === 'proses')
-                                                <span class="badge badge-primary">Menunggu Direktur</span>
+                                                <span class="badge badge-info">Menunggu Direktur</span>
+                                            @elseif ($item->status_staff_admin === 'direvisi' && $item->status_direktur === 'proses')
+                                                <span class="badge"
+                                                    style="background-color: #cd476b; color: white;">Direvisi</span>
                                             @elseif ($item->status_staff_admin === 'diverifikasi' && $item->status_direktur === 'disetujui')
-                                                <span class="badge badge-success">Disetujui</span>
+                                                <span
+                                                    class="badge
+                                                    badge-success">Disetujui</span>
                                             @elseif ($item->status_staff_admin === 'ditolak' || $item->status_direktur === 'ditolak')
                                                 <span class="badge badge-danger">Ditolak</span>
                                             @else
@@ -64,18 +69,6 @@
                                             <a class="ml-auto mr-auto" href="{{ route('pengajuan-cuti.show', $item->id) }}">
                                                 <button class="btn btn-info ml-auto mr-auto">Detail</button>
                                             </a>
-                                            {{-- <a class="ml-auto mr-auto" href="#">
-                                                <button class="btn btn-warning ml-auto mr-auto">Verifikasi</button>
-                                            </a> --}}
-
-                                            {{-- @if ($item->status == 'verifikasi') --}}
-                                            {{-- <form class="ml-auto mr-auto mt-3" method="POST" action="#">
-                                                @csrf
-                                                @method('DELETE')
-
-                                                <button class="btn btn-danger ml-auto mr-auto">Delete</button>
-                                            </form> --}}
-                                            {{-- @endif --}}
                                         </td>
                                     </tr>
                                     <?php $no++; ?>

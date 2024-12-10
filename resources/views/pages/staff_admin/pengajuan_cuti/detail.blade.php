@@ -22,13 +22,27 @@
                     <!-- Informasi Pengajuan -->
                     <div class="row">
                         <div class="col-md-6">
-                            <p><strong>Nama:</strong> {{ $pengajuanCuti->pegawai->user->name }}</p>
-                            <p><strong>Jenis Cuti:</strong> {{ $pengajuanCuti->jenisCuti->name_jenis_cuti }}</p>
-                            <p><strong>Tanggal Pengajuan:</strong>
+                            <p><strong>Nama :</strong> {{ $pengajuanCuti->pegawai->user->name }}</p>
+                            <p><strong>Status Cuti :</strong>
+                                @if ($pengajuanCuti->status_staff_admin === 'diverifikasi' && $pengajuanCuti->status_direktur === 'proses')
+                                    <span class="badge badge-info">Menunggu Direktur</span>
+                                @elseif ($pengajuanCuti->status_staff_admin === 'direvisi' && $pengajuanCuti->status_direktur === 'proses')
+                                    <span class="badge" style="background-color: #cd476b; color: white;">Direvisi</span>
+                                @elseif ($pengajuanCuti->status_staff_admin === 'diverifikasi' && $pengajuanCuti->status_direktur === 'disetujui')
+                                    <span class="badge
+                                    badge-success">Disetujui</span>
+                                @elseif ($pengajuanCuti->status_staff_admin === 'ditolak' || $pengajuanCuti->status_direktur === 'ditolak')
+                                    <span class="badge badge-danger">Ditolak</span>
+                                @else
+                                    <span class="badge badge-warning">Menunggu</span>
+                                @endif
+                            </p>
+                            <p><strong>Jenis Cuti :</strong> {{ $pengajuanCuti->jenisCuti->name_jenis_cuti }}</p>
+                            <p><strong>Mulai Cuti :</strong>
                                 {{ \Carbon\Carbon::parse($pengajuanCuti->tanggal_mulai)->translatedFormat('d F Y') }} -
                                 {{ \Carbon\Carbon::parse($pengajuanCuti->tanggal_selesai)->translatedFormat('d F Y') }}
                             </p>
-                            <p><strong>Durasi:</strong> {{ $pengajuanCuti->durasi }} hari</p>
+                            <p><strong>Durasi :</strong> {{ $pengajuanCuti->durasi }} hari</p>
                         </div>
 
                         <div class="col-md-6">

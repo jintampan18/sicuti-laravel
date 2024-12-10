@@ -25,21 +25,23 @@
                     <form class="form" action="{{ route('konfig_cuti.store') }}" method="POST">
                         @csrf
                         <div class="form-group row">
-                            <label for="tahun" class="col-2 col-form-label">Tahun</label>
+                            <label for="tahun" class="col-2 col-form-label">Tahun<span
+                                    style="color: red;">*</span></label>
                             <div class="col-10">
                                 <select class="form-control" name="tahun" id="tahun" required>
                                     <option value="" disabled selected>Pilih Tahun</option>
-                                    @for ($year = date('Y'); $year <= date('Y') + 5; $year++)
+                                    @for ($year = 2020; $year <= date('Y') + 3; $year++)
                                         <option value="{{ $year }}">{{ $year }}</option>
                                     @endfor
                                 </select>
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="example-text-input" class="col-2 col-form-label">Jumlah Cuti</label>
+                            <label for="example-text-input" class="col-2 col-form-label">Jumlah Cuti<span
+                                    style="color: red;">*</span></label>
                             <div class="col-10">
                                 <input class="form-control" name="jumlah_cuti" type="number" id="example-text-input"
-                                    required>
+                                    placeholder="Masukkan jumlah cuti" required>
                             </div>
                         </div>
                         <div class="form-group row">

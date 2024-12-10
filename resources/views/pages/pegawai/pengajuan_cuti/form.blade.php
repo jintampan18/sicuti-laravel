@@ -9,7 +9,13 @@
                 <h4 class="page-title">Form Pengajuan Cuti</h4>
             </div>
             <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
-
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        @foreach ($errors->all() as $error)
+                            <div>{{ $error }}</div>
+                        @endforeach
+                    </div>
+                @endif
             </div>
             <!-- /.col-lg-12 -->
         </div>
