@@ -63,5 +63,6 @@ Route::middleware('auth')->group(function () {
         Route::get('/form-pengajuan-cuti', [PengajuanCutiController::class, 'showFormPengajuan'])->name('pegawai.pengajuan-cuti');
         Route::post('/form-pengajuan-cuti', [PengajuanCutiController::class, 'pengajuanCuti'])->name('post.pengajuan-cuti');
         Route::get('/riwayat-cuti', [RiwayatPengajuanCutiController::class, 'index'])->name('pegawai.riwayat-cuti');
+        Route::get('riwayat-cuti/{id}', [RiwayatPengajuanCutiController::class, 'show'])->name('pegawai.riwayat-cuti.show');
     });
 });
