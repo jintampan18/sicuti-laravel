@@ -15,14 +15,13 @@
                 <div class="white-box">
                     <!-- Header -->
                     <div class="d-flex justify-content-between align-items-center mb-4">
-                        <a href="{{ route('pengajuan-cuti.index') }}" class="btn btn-info">Kembali</a>
+                        <a href="{{ route('pegawai.riwayat-cuti') }}" class="btn btn-info">Kembali</a>
                     </div>
                     <hr>
 
                     <!-- Informasi Pengajuan -->
                     <div class="row">
                         <div class="col-md-6">
-                            <p><strong>Nama :</strong> {{ $pengajuanCuti->pegawai->user->name }}</p>
                             <p><strong>Status Cuti :</strong>
                                 @if ($pengajuanCuti->status_staff_admin === 'diverifikasi' && $pengajuanCuti->status_direktur === 'proses')
                                     <span class="badge badge-info">Menunggu Direktur</span>
@@ -42,11 +41,15 @@
                                 {{ \Carbon\Carbon::parse($pengajuanCuti->tanggal_mulai)->translatedFormat('d F Y') }} -
                                 {{ \Carbon\Carbon::parse($pengajuanCuti->tanggal_selesai)->translatedFormat('d F Y') }}
                             </p>
-                            <p><strong>Sisa Cuti :</strong> {{ $sisaCuti }} hari</p>
                             <p><strong>Durasi :</strong> {{ $pengajuanCuti->durasi }} hari</p>
                         </div>
 
                         <div class="col-md-6">
+                            @if ($pengajuanCuti->status_staff_admin === 'direvisi')
+                                <h4>Catatan Revisi</h4>
+                                <p>{{ $pengajuanCuti->catatan_staff_admin }}</p>
+                            @endif
+
                             <h4>Alasan Cuti</h4>
                             <p>{{ $pengajuanCuti->alasan }}</p>
 
@@ -69,59 +72,7 @@
 
                         </div>
                     </div>
-
-                    <hr>
-
-                    <!-- Tombol Aksi -->
-                    <div class="row">
-                        <div class="col-md-12">
-                            <form action="{{ route('pengajuan-cuti.verifikasi', $pengajuanCuti->id) }}" method="POST"
-                                class="d-inline">
-                                @csrf
-                                @method('PATCH')
-                                <button class="btn btn-success">Verifikasi</button>
-                            </form>
-
-                            <!-- Tombol Revisi -->
-                            <button class="btn btn-warning" data-bs-toggle="modal"
-                                data-bs-target="#modalRevisi">Revisi</button>
-
-                            <!-- Tombol Tolak -->
-                            <form action="{{ route('pengajuan-cuti.tolak', $pengajuanCuti->id) }}" method="POST"
-                                class="d-inline">
-                                @csrf
-                                @method('PATCH')
-                                <button class="btn btn-danger">Tolak</button>
-                            </form>
-                        </div>
-                    </div>
                 </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Modal Revisi -->
-    <div class="modal fade" id="modalRevisi" tabindex="-1" aria-labelledby="modalRevisiLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <form action="{{ route('pengajuan-cuti.revisi', $pengajuanCuti->id) }}" method="POST">
-                    @csrf
-                    @method('PATCH')
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="modalRevisiLabel">Revisi Pengajuan</h5>
-                        {{-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> --}}
-                    </div>
-                    <div class="modal-body">
-                        <div class="form-group">
-                            <label for="catatan_staff_admin">Catatan Revisi</label>
-                            <textarea name="catatan_staff_admin" id="catatan_staff_admin" class="form-control" rows="4" required></textarea>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                        <button type="submit" class="btn btn-warning">Kirim Revisi</button>
-                    </div>
-                </form>
             </div>
         </div>
     </div>

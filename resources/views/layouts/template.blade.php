@@ -36,6 +36,8 @@
 <![endif]-->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script>
         (function(i, s, o, g, r, a, m) {
             i['GoogleAnalyticsObject'] = r;
@@ -337,6 +339,20 @@
     </script>
     <!--Style Switcher -->
     <script src="{{ asset('plugins/bower_components/styleswitcher/jQuery.style.switcher.js') }}"></script>
+    {{-- Datepicker --}}
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            flatpickr(".date-input", {
+                dateFormat: "d/m/Y",
+                altInput: true,
+                altFormat: "d/m/Y",
+                onChange: function(selectedDates, dateStr, instance) {
+                    const formattedDate = selectedDates[0].toISOString().split('T')[0];
+                    instance.element.value = formattedDate;
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>

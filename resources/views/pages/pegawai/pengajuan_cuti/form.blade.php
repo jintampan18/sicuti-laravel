@@ -58,7 +58,8 @@
                                 Mulai Cuti <span style="color: red;">*</span>
                             </label>
                             <div class="col-10">
-                                <input class="form-control" name="mulai_cuti" type="date" id="mulai_cuti" required>
+                                <input class="form-control date-input" name="mulai_cuti" type="text" id="mulai_cuti"
+                                    placeholder="DD/MM/YYYY" required>
                             </div>
                         </div>
 
@@ -68,7 +69,8 @@
                                 Selesai Cuti <span style="color: red;">*</span>
                             </label>
                             <div class="col-10">
-                                <input class="form-control" name="selesai_cuti" type="date" id="selesai_cuti" required>
+                                <input class="form-control date-input" name="selesai_cuti" type="text" id="selesai_cuti"
+                                    placeholder="DD/MM/YYYY" required>
                             </div>
                         </div>
 

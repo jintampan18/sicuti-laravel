@@ -13,8 +13,6 @@
         <div class="row">
             <div class="col-sm-12">
                 <div class="white-box">
-                    <h3 class="box-title m-b-0">Riwayat Pengajuan Cuti</h3>
-                    <hr>
                     <div class="table-responsive">
                         <table class="table table-striped">
                             <thead>
@@ -24,6 +22,7 @@
                                     <th>Tanggal Pengajuan</th>
                                     <th>Lama Cuti</th>
                                     <th>Status</th>
+                                    <th>Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -48,6 +47,12 @@
                                             @else
                                                 <span class="badge badge-warning">Menunggu</span>
                                             @endif
+                                        </td>
+                                        <td>
+                                            <a class="ml-auto mr-auto"
+                                                href="{{ route('pegawai.riwayat-cuti.show', $item->id) }}">
+                                                <button class="btn btn-info ml-auto mr-auto">Detail</button>
+                                            </a>
                                         </td>
                                     </tr>
                                 @empty

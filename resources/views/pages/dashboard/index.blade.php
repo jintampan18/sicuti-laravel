@@ -74,6 +74,20 @@
                         </ul>
                     </div>
                 </div>
+                @foreach ($cuti_dinamis as $cuti)
+                    <div class="col-lg-3 col-sm-6 col-xs-12">
+                        <div class="white-box analytics-info">
+                            <h3 class="box-title">Total Cuti {{ $cuti['jenis_cuti'] }}</h3>
+                            <ul class="list-inline two-part">
+                                <li>
+                                </li>
+                                <li class="text-right"><span class="counter text-info">{{ $cuti['total'] }}</span>
+                                </li>
+                                {{-- <li class="text-right"> <span class="text-info counter"> 1000</span></li> --}}
+                            </ul>
+                        </div>
+                    </div>
+                @endforeach
             </div>
             <!--/.row -->
         @elseif(Auth::user()->role == 'direktur')

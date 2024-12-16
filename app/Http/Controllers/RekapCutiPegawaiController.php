@@ -22,7 +22,7 @@ class RekapCutiPegawaiController extends Controller
 
         // Jika tidak ditemukan konfigurasi cuti untuk tahun tersebut, arahkan ke halaman konfigurasi
         if (!$konfigCuti) {
-            return redirect()->route('konfig_cuti')->with(
+            return redirect()->route('konfig_cuti.index')->with(
                 'failed',
                 'Konfigurasi cuti untuk tahun ini tidak ditemukan.'
             );
