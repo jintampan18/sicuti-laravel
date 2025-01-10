@@ -50,6 +50,7 @@ class PengajuanCutiController extends Controller
         $pengajuanTahunIni = PengajuanCuti::where('pegawai_id', $pegawai->id)
             ->whereYear('tanggal_verifikasi_direktur', $tahun)
             ->where('status_direktur', 'disetujui')
+            ->where('jenis_cuti_id', '!=', '2')
             ->get();
 
         // Hitung total durasi cuti yang sudah digunakan

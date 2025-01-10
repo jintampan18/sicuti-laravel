@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Jabatan;
 use App\Models\JenisCuti;
+use App\Models\KonfigCuti;
 use App\Models\Pegawai;
 use App\Models\PengajuanCuti;
 use Illuminate\Http\Request;
@@ -45,14 +46,38 @@ class DashboardController extends Controller
         // Mendapatkan data pegawai berdasarkan ID pengguna
         $pegawai = Pegawai::where('user_id', $id_user)->firstOrFail();
 
+        // Mengambil parameter tahun dari request, default ke tahun saat ini jika tidak ada
+        $tahun = $request->get('tahun', date('Y'));
+
+        // Mengambil konfigurasi cuti berdasarkan tahun yang dipilih
+        $konfigCuti = KonfigCuti::where('tahun', $tahun)->first();
+
+        // Jika tidak ditemukan konfigurasi cuti untuk tahun tersebut, arahkan ke halaman konfigurasi
+        if (!$konfigCuti) {
+            return redirect()->route('konfig_cuti.index')->with(
+                'failed',
+                'Konfigurasi cuti untuk tahun ini tidak ditemukan.'
+            );
+        }
+
         // Menghitung total cuti yang sudah terpakai berdasarkan pengajuan yang disetujui
         $cuti_terpakai = $pegawai->pengajuanCuti()
             ->where('status_staff_admin', 'Diverifikasi')
             ->where('status_direktur', 'Disetujui')
+            ->whereYear('created_at', $tahun)
+            ->where('jenis_cuti_id', '!=', '2')
             ->sum('durasi') ?? 0;
 
-        // Mendapatkan sisa cuti pengguna
-        $sisa_cuti = $pegawai->sisa_cuti ?? 0;
+        // Hitung sisa cuti:
+        // Jumlah Cuti Tahunan + Sisa Cuti Sebelumnya - Cuti Terpakai
+        $sisa_cuti = max(
+            ($konfigCuti->jumlah_cuti ?? 0) +
+                ($pegawai->sisa_cuti ?? 0) -
+                $cuti_terpakai,
+            0
+        );
+
+        // dd($sisa_cuti);
 
         // Menghitung jumlah pengajuan cuti yang diverifikasi oleh direktur tahun ini
         $pengajuan_cuti_verifikasi = $pegawai->pengajuanCuti()

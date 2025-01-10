@@ -57,7 +57,9 @@
                         <ul class="list-inline two-part">
                             <li>
                             </li>
-                            <li class="text-right"><span class="counter text-info">{{ $pengajuan_cuti_verifikasi }}</span>
+                            <li class="text-right">
+                                <span class="counter text-info">{{ $pengajuan_cuti_verifikasi }}</span>
+                                Pengajuan
                             </li>
                             {{-- <li class="text-right"> <span class="counter text-info"> 1000 </span></li> --}}
                         </ul>
@@ -69,7 +71,10 @@
                         <ul class="list-inline two-part">
                             <li>
                             </li>
-                            <li class="text-right"><span class="counter text-info">{{ $total_pengajuan_cuti }}</span></li>
+                            <li class="text-right">
+                                <span class="counter text-info">{{ $total_pengajuan_cuti }}</span>
+                                Pengajuan
+                            </li>
                             {{-- <li class="text-right"> <span class="text-info counter"> 1000</span></li> --}}
                         </ul>
                     </div>
@@ -81,7 +86,9 @@
                             <ul class="list-inline two-part">
                                 <li>
                                 </li>
-                                <li class="text-right"><span class="counter text-info">{{ $cuti['total'] }}</span>
+                                <li class="text-right">
+                                    <span class="counter text-info">{{ $cuti['total'] }}</span>
+                                    Pengajuan
                                 </li>
                                 {{-- <li class="text-right"> <span class="text-info counter"> 1000</span></li> --}}
                             </ul>
@@ -110,7 +117,9 @@
                         <ul class="list-inline two-part">
                             <li>
                             </li>
-                            <li class="text-right"><span class="counter text-info">{{ $pengajuan_cuti_verifikasi }}</span>
+                            <li class="text-right">
+                                <span class="counter text-info">{{ $pengajuan_cuti_verifikasi }}</span>
+                                Pengajuan
                             </li>
                             {{-- <li class="text-right"> <span class="counter text-info"> 1000 </span></li> --}}
                         </ul>
@@ -122,7 +131,10 @@
                         <ul class="list-inline two-part">
                             <li>
                             </li>
-                            <li class="text-right"><span class="counter text-info">{{ $total_pengajuan_cuti }}</span></li>
+                            <li class="text-right">
+                                <span class="counter text-info">{{ $total_pengajuan_cuti }}</span>
+                                Pengajuan
+                            </li>
                             {{-- <li class="text-right"> <span class="text-info counter"> 1000</span></li> --}}
                         </ul>
                     </div>
@@ -138,7 +150,10 @@
                         <ul class="list-inline two-part">
                             <li>
                             </li>
-                            <li class="text-right"><span class="counter text-info">{{ $cuti_terpakai }}</span></li>
+                            <li class="text-right">
+                                <span class="counter text-info">{{ $cuti_terpakai }}</span>
+                                Hari
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -148,7 +163,10 @@
                         <ul class="list-inline two-part">
                             <li>
                             </li>
-                            <li class="text-right"><span class="counter text-info">{{ $sisa_cuti }}</span></li>
+                            <li class="text-right">
+                                <span class="counter text-info">{{ $sisa_cuti }}</span>
+                                Hari
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -158,7 +176,9 @@
                         <ul class="list-inline two-part">
                             <li>
                             </li>
-                            <li class="text-right"> <span class="counter text-info">{{ $pengajuan_cuti_verifikasi }}</span>
+                            <li class="text-right">
+                                <span class="counter text-info">{{ $pengajuan_cuti_verifikasi }}</span>
+                                Pengajuan
                             </li>
                         </ul>
                     </div>
@@ -169,7 +189,10 @@
                         <ul class="list-inline two-part">
                             <li>
                             </li>
-                            <li class="text-right"> <span class="counter text-info">{{ $total_pengajuan_cuti }}</span></li>
+                            <li class="text-right">
+                                <span class="counter text-info">{{ $total_pengajuan_cuti }}</span>
+                                Pengajuan
+                            </li>
                         </ul>
                     </div>
                 </div>

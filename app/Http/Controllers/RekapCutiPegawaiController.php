@@ -34,6 +34,7 @@ class RekapCutiPegawaiController extends Controller
                 ['pengajuanCuti as cuti_terpakai' => function ($query) use ($tahun) {
                     $query->where('status_staff_admin', 'Diverifikasi') // Hanya pengajuan yang diverifikasi oleh admin
                         ->where('status_direktur', 'Disetujui') // Hanya pengajuan yang disetujui oleh direktur
+                        ->where('jenis_cuti_id', '!=', '2')
                         ->whereYear('tanggal_verifikasi_direktur', $tahun); // Hanya data untuk tahun yang dipilih
                 }],
                 'durasi' // Field yang dijumlahkan adalah durasi cuti
@@ -77,6 +78,7 @@ class RekapCutiPegawaiController extends Controller
             ->where('pegawai_id', $id)
             ->whereYear('tanggal_verifikasi_direktur', $tahun)
             ->where('status_direktur', 'disetujui')
+            ->where('jenis_cuti_id', '!=', '2')
             ->orderBy('created_at', 'desc')
             ->get();
 
