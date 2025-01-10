@@ -46,7 +46,7 @@
                                 <?php $no = 1; ?>
                                 @foreach ($jenisCuti as $item)
                                     <tr>
-                                        <td>{{ $no }}</td>
+                                        <td>{{ $item->id }}</td>
                                         <td>{{ $item->name_jenis_cuti }}</td>
                                         <th>
                                             <a class="ml-auto mr-auto" href="{{ route('jenis_cuti.edit', $item->id) }}">
