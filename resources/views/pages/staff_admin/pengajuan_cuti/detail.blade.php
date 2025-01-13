@@ -42,7 +42,9 @@
                                 {{ \Carbon\Carbon::parse($pengajuanCuti->tanggal_mulai)->translatedFormat('d F Y') }} -
                                 {{ \Carbon\Carbon::parse($pengajuanCuti->tanggal_selesai)->translatedFormat('d F Y') }}
                             </p>
-                            <p><strong>Sisa Cuti :</strong> {{ $sisaCuti }} hari</p>
+                            @if ($pengajuanCuti->jenis_cuti_id !== 2)
+                                <p><strong>Sisa Cuti :</strong> {{ $sisaCuti }} hari</p>
+                            @endif
                             <p><strong>Durasi :</strong> {{ $pengajuanCuti->durasi }} hari</p>
                         </div>
 
